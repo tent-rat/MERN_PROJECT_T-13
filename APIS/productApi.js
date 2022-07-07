@@ -74,71 +74,6 @@ productApp.get(
   })
 );
 
-// //create route to handle '/create-product' path
-// //here we have inserted productObj using callback fun
-// productApp.post('/create-product',(request,response)=>{
-
-//     //get productCollectionObject from app.js
-//     let productCollectionObject=request.app.get("productCollectionObject");
-
-//     //get productObj from request
-//     let productObj=request.body;
-
-//     //insert productObj
-//    productCollectionObject.insertOne(productObj,(err,result)=>{
-//        if(err){
-//            console.log("error in creating object", err)
-//        }
-//        else{
-//            response.send({message:'New Product created successfully!!!'})
-//        }
-//    })
-
-// })
-
-// //create route to handle '/create-product' path
-// //here we have inserted productObj using promise
-// productApp.post('/create-product',(request,response)=>{
-
-//     //get productCollectionObject from app.js
-//     let productCollectionObject=request.app.get("productCollectionObject");
-
-//     //get productObj from request
-//     let productObj=request.body;
-
-//     //insert productObj
-//    productCollectionObject.insertOne(productObj)
-//    .then(result=>response.send({message:'New Product created Successfully!!'}))
-//    .catch(err=>console.log("error in creating product", err))
-
-// })
-
-// //create route to handle '/create-product' path
-// //here we have inserted productObj using async/await
-// //handling aynchronous errors using try and catch
-// productApp.post('/create-product',async (request,response,next)=>{
-//     try{
-
-//         //get productCollectionObject from app.js
-//         let productCollectionObject=request.app.get("productCollectionObject");
-
-//         //get productObj from request
-//         let productObj=request.body;
-
-//         //insert productObj
-//         let result=await productCollectionObject.insertOne(productObj)
-//         //sending response
-//         response.send({message:'New Product created Successfully!'})
-//     }
-//     catch(err){
-//         //handover error obj to error handling middleware
-//         next(err);
-//     }
-// })
-
-//create route to handle '/create-product' path
-//here we have inserted productObj using async/await
-//handling aynchronous errors using express-async-handler
 productApp.post(
   "/create-product",
   //upload.single("Bookphoto"),
@@ -148,18 +83,10 @@ productApp.post(
     //get productObj from request
     let productObj = request.body;
     console.log(productObj);
-    //search for user by username
-    // let productOfDB = await productCollectionObject.findOne({
-    //   food: productObj.food,
-    // });
-    //if product existed
-    // if (productOfDB !== null) {
-    //   response.send({ message: "Item is already added!!" });
-    // } else {
-      //insert productObj
-      await productCollectionObject.insertOne(productObj);
-      //sending response
-      response.send({ message: "New Product created Successfully!" });
+
+    await productCollectionObject.insertOne(productObj);
+    //sending response
+    response.send({ message: "New Product created Successfully!" });
     //}
   })
 );
