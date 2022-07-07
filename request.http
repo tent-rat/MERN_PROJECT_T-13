@@ -1,0 +1,6 @@
+POST http://localhost:3000/product-api/create-product
+Content-Type: application/json
+
+{
+    "Hello":"500"
+}

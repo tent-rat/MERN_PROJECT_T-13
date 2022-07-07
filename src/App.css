@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+a.bottom_to_top{
+  width: 50px;
+  height: 50px;
+  position:fixed;
+  bottom: 40%;
+  right: 2%;
+  background-color:#F9004D ;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: .4s all ease;
+}
+
+a.bottom_to_top:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+
+}
+
+a.bottom_to_top.active{
+  display: flex;
+}

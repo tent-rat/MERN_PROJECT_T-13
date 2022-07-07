@@ -1,0 +1,12 @@
+.active {
+  background-color: whitesmoke;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px 8px;
+  border-radius: 3px;
+}
+
+.logo {
+  max-height: 50px;
+}
